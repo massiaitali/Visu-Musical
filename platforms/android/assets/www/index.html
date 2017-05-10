@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Projet Inter Spé</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link href="css/csschart.css" rel="stylesheet" type="text/css" media="screen" />
+        <script src="cordova.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Visualisation Musicale</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a id="diagramme">Diagramme</a></li>
+						<li><a id="3D">Animation 3D</a></li>
+						<li><a onclick="debug();" >Mode debug</a></li>
+						<li><a onclick="debugblu();" >Mode Bluetooth</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div><!--/.container-fluid -->
+		</nav>
+		<div class="container-fluid">
+			<input type="number" value="0" id="debug_count" style="display: none;">
+			<input type="number" value="0" id="blu_count" style="display: none;">
+			<div id="content-diagramme" class="row" style="padding-left: 7%;" >
+				<div class="col-md-12">
+					<h1>Diagramme</h1>
+				</div>
+				<div class="col-md-12">
+					<dl id="csschart">
+						<dd class="first"><span id="aigu-data" class="p36"></span></dd> <!-- Aigu -->
+						<dd><span id="basse-data" class="type2 p45"></span></dd>  <!-- Basse -->
+					</dl>
+				</div>
+				<div id="dev_dia" style="display: none;" class="col-md-12">
+					<button class="btn btn-primary" type="button" id="Aigu" onclick="update_data(Math.floor(Math.random() * (100 - 1 + 1)) + 1, 1);" >Aigu</button>
+					<button class="btn btn-primary" type="button" id="Basse" onclick="update_data(Math.floor(Math.random() * (100 - 1 + 1)) + 1, 2);">Basse</button>
+					<button class="btn btn-primary" onclick="test_dia();" type="button" >Mode Auto</button>
+				</div>
+				<div id="bluetooth-connect" class="row" style="display: none;">
+				<input type="text" name="blu" class="form-control" placeholder="Entrer le UUID ou Mac Adresse" id="bluetooth-idendity">
+				<button type="button" class="form-control" onclick="connect();">Connect bluetooth</button>
+				</div>
+				
+			</div>
+				<!--
+									
+				-->
+				
+			</div>
+			<div id="content-3D" class="row" style="display: none;">
+				<div class="col-md-12">
+					<h1>3D</h1>
+				</div>
+				<div class="col-md-12">
+					<img src="img/standard.gif" alt="3D" id="3D-model">
+				</div>
+				<div class="col-md-12">
+				</div>
+				<div id="dev_3D" style="display: none;" class="col-md-12">
+					<button class="btn btn-primary" type="button" id="Aigu3D" onclick="update_3D_danse(1);" >Aigu</button>
+					<button class="btn btn-primary" type="button" id="Basse3D" onclick="update_3D_danse(2);">Basse</button>
+					<button class="btn btn-primary" onclick="update_3D_danse(3);" type="button" >Pause</button>
+					<button class="btn btn-primary" onclick="test_3D();" type="button" >Mode Auto</button>
+				</div>
+			</div>
+		</div>
+		<input type="text" id="bluetooth-mem" value="" style="display: none;">
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+				<script src="js/menu.js" type="text/javascript" charset="utf-8"></script>
+				<script src="js/diagramme.js" type="text/javascript" charset="utf-8"></script>
+				<script src="js/3D.js" type="text/javascript" charset="utf-8"></script>
+				<script src="js/bluetooth.js" type="text/javascript" charset="utf-8"></script>
+				<script src="js/debug.js" type="text/javascript" charset="utf-8"></script>
+                <!-- <script src="js/three.min.js" type="text/javascript" charset="utf-8"></script> -->
+			</body>
+		</html>
